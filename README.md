@@ -5,6 +5,6 @@ I`ve created this bot for a Minecraft server that I is hosted on an extra Window
 
 It is developed in the [Trae IDE](https://www.trae.ai) and retouched with the built-in AI to fix errors.
 
-- [] Add more comands in diferent discord channels
-- [] Add some kind of game
-- [] Add a config site (if posible)
+- [ ] Add more comands in diferent discord channels
+- [ ] Add some kind of game
+- [ ] Add a config site (if posible)
