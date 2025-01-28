@@ -2,11 +2,8 @@
 import discord  # Main library for creating Discord bot
 from mcstatus import JavaServer  # Allows checking Minecraft server status
 import requests  # For HTTP requests
-from mcrcon import MCRcon  # For Minecraft server RCON connection
 import os  # For operating system operations
 import time  # For time-related functions
-from watchdog.observers import Observer  # For watching file changes
-from watchdog.events import FileSystemEventHandler  # For handling filesystem events
 import re  # Library for regular expressions
 import subprocess  # For process handling
 import asyncio  # Library for asynchronous coroutines
@@ -30,8 +27,6 @@ client = discord.Client(intents=intents)
 @client.event
 async def on_ready():
     print(f'Bot connected as {client.user}')
-    # Start the log file observer
-    observer = setup_log_watcher(client)
 
 # Discord channel ID where messages will be sent
 DISCORD_CHANNEL_ID = "123456789"  # Replace with your channel ID
