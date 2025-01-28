@@ -20,6 +20,11 @@ SERVER_START_SCRIPT = r"D:\Server\Run\File.bat"  # Replace the .bat file path
 intents = discord.Intents.default()
 intents.message_content = True  # Allows the bot to read messages
 
+def public_ip():
+    ip = requests.get('https://api.ipify.org')
+
+    return ip
+
 # Discord client initialization
 client = discord.Client(intents=intents)
 
@@ -40,7 +45,7 @@ async def on_message(msg):
 
     if msg.author == client.user:
         return
-
+    
     # Handle $start command
     if msg.content.startswith('$start'):
         if msg.author.id in AUTHORIZED_USERS:
@@ -62,7 +67,7 @@ async def on_message(msg):
     # Command $server - Checks Minecraft server status
     if msg.content.startswith('$server'):
         try:
-            public_ip = requests.get('https://api.ipify.org')
+            public_ip = public_ip()
             if public_ip:
                 # Try to connect to the Minecraft server
                 server = JavaServer.lookup(f"{public_ip}:25565")
